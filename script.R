@@ -27,7 +27,10 @@ for (dir in split_tr_dirs) {
       }
     } 
     close(con)
-    points = rbind(points, trajPoints)
+    if (!nrow(trajPoints) == 1 & !all(is.na(trajPoints))) {
+      points = rbind(points, trajPoints)
+    }
+    
   }
   setwd('../..')
 }
